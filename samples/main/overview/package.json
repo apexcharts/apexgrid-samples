@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "node": "18.16.0",
-    "apex-grid": "^1.0.0",
+    "apex-grid": "^1.0.1",
     "lit": "^2.6.1"
   },
   "devDependencies": {
