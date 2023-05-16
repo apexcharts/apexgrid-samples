@@ -1,17 +1,28 @@
-import { defineComponents, IgcRatingComponent, IgcCheckboxComponent, IgcSelectComponent } from 'igniteui-webcomponents'
+import {
+  defineComponents,
+  IgcRatingComponent,
+  IgcCheckboxComponent,
+  IgcSelectComponent,
+  IgcAvatarComponent,
+} from "igniteui-webcomponents";
 import { LitElement, css, html } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import { ApexGrid, ColumnConfiguration } from "apex-grid";
 import "igniteui-webcomponents/themes/light/bootstrap.css";
-import { User, createUser } from './mock-data';
+import { User, createUser } from "./mock-data";
 
 ApexGrid.register();
 
-defineComponents(IgcRatingComponent, IgcCheckboxComponent, IgcSelectComponent)
+defineComponents(
+  IgcAvatarComponent,
+  IgcRatingComponent,
+  IgcCheckboxComponent,
+  IgcSelectComponent
+);
 
-const choices = ['Low', 'Standard', 'High'];
+const choices = ["Low", "Standard", "High"];
 
-@customElement('app-sample-main')
+@customElement("app-sample-main")
 export class Main extends LitElement {
   static styles = css`
     :host {
@@ -20,7 +31,7 @@ export class Main extends LitElement {
       --ig-size: 1;
     }
     apex-grid {
-      min-height: 400px;
+      min-height: 75vh;
     }
   `;
 
@@ -30,39 +41,40 @@ export class Main extends LitElement {
   @state()
   protected columns: ColumnConfiguration<User>[] = [
     {
-      key: 'avatar',
-      width: '85px',
-      headerText: 'Avatar',
-      cellTemplate: ({ value }) => html` <igc-avatar
+      key: "avatar",
+
+      headerText: "Avatar",
+      cellTemplate: ({ value }) => html`<igc-avatar
         shape="circle"
         alt="User avatar"
         .src=${value}
       ></igc-avatar>`,
     },
     {
-      key: 'firstName',
-      headerText: 'First name',
+      key: "firstName",
+      headerText: "First name",
       sort: true,
       filter: true,
       resizable: true,
     },
     {
-      key: 'lastName',
-      headerText: 'Last name',
+      key: "lastName",
+      headerText: "Last name",
       sort: true,
       filter: true,
       resizable: true,
     },
     {
-      key: 'email',
-      headerText: 'Email Address',
+      key: "email",
+      headerText: "Email Address",
     },
     {
-      key: 'priority',
-      headerText: 'Priority',
-      width: '175px',
+      key: "priority",
+      headerText: "Priority",
+      width: "12rem",
       sort: {
         comparer: (a, b) => choices.indexOf(a) - choices.indexOf(b),
+        caseSensitive: true,
       },
       cellTemplate: ({ value }) => html`
         <igc-select outlined .value=${value} flip
@@ -76,25 +88,25 @@ export class Main extends LitElement {
       `,
     },
     {
-      key: 'satisfaction',
-      headerText: 'Satisfaction rating',
-      type: 'number',
+      key: "satisfaction",
+      headerText: "Satisfaction rating",
+      type: "number",
       sort: true,
       filter: true,
       cellTemplate: ({ value }) =>
         html`<igc-rating readonly .value=${value}></igc-rating>`,
     },
     {
-      key: 'registeredAt',
-      headerText: 'Registered @',
+      key: "registeredAt",
+      headerText: "Registered @",
       sort: true,
       cellTemplate: ({ value }) => html`${value.toLocaleString()}`,
     },
     {
-      key: 'active',
-      type: 'boolean',
-      width: '82px',
-      headerText: 'Active',
+      key: "active",
+      type: "boolean",
+
+      headerText: "Active",
       cellTemplate: ({ value }) =>
         html`<igc-checkbox ?checked=${value}></igc-checkbox>`,
     },
