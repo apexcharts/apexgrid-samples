@@ -6,7 +6,7 @@ import {
   createProductInfo,
   createUserSimple,
   ProductInfo,
-  UserSimple
+  UserSimple,
 } from "./mock-data";
 
 ApexGrid.register();
@@ -23,15 +23,15 @@ export default class extends LitElement {
       }
       apex-grid {
         margin-top: 1rem;
-        min-height: 400px;
+        min-height: 65vh;
       }
-    `
+    `,
   ];
 
   protected dataType: "products" | "users" = "products";
   protected generators = {
     products: createProductInfo,
-    users: createUserSimple
+    users: createUserSimple,
   };
 
   #switchData() {

@@ -11,9 +11,9 @@ export default class extends LitElement {
         --ig-size: 2;
       }
       apex-grid {
-        min-height: 400px;
+        min-height: 65vh;
       }
-    `
+    `,
   ];
 
   @state()
@@ -30,7 +30,7 @@ export default class extends LitElement {
       type: "boolean",
       filter: true,
       cellTemplate: ({ value }) =>
-        html`<igc-checkbox .checked=${value}></igc-checkbox>`
-    }
+        html`<igc-checkbox .checked=${value}></igc-checkbox>`,
+    },
   ];
 }
