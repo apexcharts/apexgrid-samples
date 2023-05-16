@@ -10,7 +10,7 @@ defineComponents(IgcRatingComponent);
 
 const formatter = new Intl.NumberFormat("en-EN", {
   style: "currency",
-  currency: "EUR"
+  currency: "EUR",
 });
 
 abstract class Base extends LitElement {
@@ -21,9 +21,9 @@ abstract class Base extends LitElement {
         --ig-size: 2;
       }
       apex-grid {
-        min-height: 400px;
+        min-height: 65vh;
       }
-    `
+    `,
   ];
 
   protected format = (params: any) => formatter.format(params.value);
@@ -40,7 +40,7 @@ abstract class Base extends LitElement {
       key: "price",
       headerText: "Price",
       type: "number",
-      cellTemplate: this.format
+      cellTemplate: this.format,
     },
     { key: "sold", type: "number", headerText: "Units sold" },
     { key: "total", headerText: "Total sold", cellTemplate: this.format },
@@ -52,8 +52,8 @@ abstract class Base extends LitElement {
         readonly
         step="0.01"
         value=${value}
-      ></igc-rating>`
-    }
+      ></igc-rating>`,
+    },
   ];
 }
 

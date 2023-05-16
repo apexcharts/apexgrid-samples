@@ -14,9 +14,9 @@ export default class extends LitElement {
         --ig-size: 2;
       }
       apex-grid {
-        min-height: 400px;
+        min-height: 65vh;
       }
-    `
+    `,
   ];
 
   @state()
@@ -37,9 +37,9 @@ export default class extends LitElement {
         readonly
         step="0.01"
         value=${value}
-      ></igc-rating>`
+      ></igc-rating>`,
     },
     { key: "sold", type: "number", headerText: "Sold", sort: true },
-    { key: "total", type: "number", headerText: "Total", sort: true }
+    { key: "total", type: "number", headerText: "Total", sort: true },
   ];
 }
