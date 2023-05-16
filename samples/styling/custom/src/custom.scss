@@ -17,7 +17,7 @@ $my-light-palette: palette(
 
 .custom-light {
   @include palette($my_light_palette);
-  @include typography('"Roboto Condensed", sans-serif', $bootstrap-type-scale);
+  @include typography('"Roboto", sans-serif', $bootstrap-type-scale);
 }
 
 .custom-dark {
